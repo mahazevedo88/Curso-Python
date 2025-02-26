@@ -31,8 +31,8 @@ def validador():
         else: 
             return redirect(url_for('pagina403'))
     else:
-        usuario = request.args.get['c_usuario']
-        senha = request.args.get['c_senha']
+        usuario = request.args.get('c_usuario')
+        senha = request.args.get('c_senha')
         if usuario == acesso_u and senha == acesso_s:
             return redirect(url_for('welcome'))
         else: 
