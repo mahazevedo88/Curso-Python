@@ -68,8 +68,10 @@ else:
 
         #extraindo o mês e ano da data
         df['Mês/Ano'] = df['Data'].dt.to_period('M')
+        df['Ano'] = df['Data'].dt.to_period('Y')
 
         filmes_por_mes = df['Mês/Ano'].value_counts().sort_index()
+        filmes_por_ano = df['Ano'].value_counts().sort_index()
 
         #plotar o gráfico de barras
         plt.figure(figsize=(10,6))
@@ -81,7 +83,16 @@ else:
         plt.tight_layout()
         plt.show()     
     
-    
+        #plotar gráfico de pizza
+        plt.figure(figsize=(10,6))
+        filmes_por_ano.plot(kind='pie', color='skyblue')
+        plt.title('Quantidade de Filmes por Ano')
+        plt.xlabel('Ano')
+        plt.ylabel('Quantidade de Filmes')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+        plt.show() 
+
     else:
         print("Nenhum dado encontrado")
 
